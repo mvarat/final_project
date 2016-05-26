@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <title>WhitespaceApp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body ng-controller="WelcomeController">
+    <h1>hello world<h1>
+    <%= yield %>
+    <button name="button" ng-click="getArtwork()">GIVE ME ART!</button>
+    <br>
+    <br>
+    <img src={{imageURL}}>
+    <p>{{year}}</p>
+    <p>{{artist}}</p>
+  </body>
+</html>

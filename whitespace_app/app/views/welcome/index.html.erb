@@ -1,1 +1,12 @@
-<h2>hi there</h2>
+
+<form>
+  <input placeholder="Search" ng-model="term">
+  <input type="button" class="btn" ng-click="searchArtist(term)" value="search">
+</form>
+
+<button name="button" ng-click="getArtwork()">GIVE ME ART!</button>
+<br>
+<img src={{imageURL}}>
+<p>Title: {{title}}</p>
+<p>Year: {{year}}</p>
+<p>Artist: {{artist}}</p>

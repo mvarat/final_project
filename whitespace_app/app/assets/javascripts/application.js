@@ -20,21 +20,19 @@ var myApp = angular.module("MyApp", [] );
 
 myApp.controller("WelcomeController", ["$scope", "$http", function( $scope, $http){
 
-console.log("controller");
-
-  var req = {
-    method: 'GET',
-    url: 'https://api.artsy.net/api/artworks/515d096f7b7057eb4c002612',
-    // url: 'https://api.artsy.net/api/artworks/515d12137696593fde0028d0',
-    // url: 'https://api.artsy.net/api/artworks/516dfb9ab31e2b2270000c45',
-    // url: 'https://api.artsy.net/api/artworks?sample',
-    headers: {
-      'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49ps5s1UNlgFuRyMu0_534R3rKyfFipTxOYj4DUNubvaJkHh7aChVoP7upBNet1lIjlcTbAbRFdWIdweHuyyUHr-zOwCQZczTEVBKOZpNuI6IkUux3e9qvm-_l7WBRueLaRMLt3POjkTx7KwPn5vSzWX597R-JtU0AdiCAq1V_yVnGxs1YWsmhPFYD9-5Fo4Au-70elyRUdpvwWUfDWXFBU8="
-    }
-  }
-
   // get artwork ()
   $scope.getArtwork = function () {
+    var req = {
+      method: 'GET',
+      url: 'https://api.artsy.net/api/artworks/515d096f7b7057eb4c002612',
+      // url: 'https://api.artsy.net/api/artworks/515d12137696593fde0028d0',
+      // url: 'https://api.artsy.net/api/artworks/516dfb9ab31e2b2270000c45',
+      // url: 'https://api.artsy.net/api/artworks?sample',
+      headers: {
+        'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49ps5s1UNlgFuRyMu0_534R3rKyfFipTxOYj4DUNubvaJkHh7aChVoP7upBNet1lIjlcTbAbRFdWIdweHuyyUHr-zOwCQZczTEVBKOZpNuI6IkUux3e9qvm-_l7WBRueLaRMLt3POjkTx7KwPn5vSzWX597R-JtU0AdiCAq1V_yVnGxs1YWsmhPFYD9-5Fo4Au-70elyRUdpvwWUfDWXFBU8="
+      }
+    }
+
     $http(req).then(function(response){
       console.log(response.data);
       // console.log(response.data.date);
@@ -62,11 +60,13 @@ console.log("controller");
     $http(artistReq).then(function(response){
       console.log(response.data._embedded.artists[0].name);
       $scope.artist = response.data._embedded.artists[0].name;
-
     });
   }
 
-  $scope.searchArtist = function (searchTerm) {
+  var searchResultsArray = [];
+  $scope.searchResults= {};
+
+  $scope.search = function (searchTerm) {
     console.log("Search Term: " + searchTerm)
     var searchReq = {
       method: 'GET',
@@ -79,6 +79,12 @@ console.log("controller");
     $http(searchReq).then(function(response){
       console.log("search response:");
       console.log(response.data._embedded.results);
+      for (var i = 0; i < 10; i ++){
+        var artworkLink = response.data._embedded.results[i]._links.self.href;
+        console.log(artworkLink);
+        searchResultsArray.push(artworkLink);
+      }
+      console.log(searchResultsArray);
     });
   }
 

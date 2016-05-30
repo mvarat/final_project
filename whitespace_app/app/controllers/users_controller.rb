@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  # def profile
-  #   @user = current_user
-  #   @parties = Party.where(user_id: @user)
-  # end
+  def profile
+    @user = current_user
+    @collections = Collection.where(user_id: @user)
+  end
 
   private
 

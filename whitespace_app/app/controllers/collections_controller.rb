@@ -5,7 +5,8 @@ class CollectionsController < ApplicationController
   # show all collections for the user
   def index
     @user = current_user
-    @parties = Collection.where(user_id: @user)
+    @collections = Collection.where(user_id: @user)
+    render json: @collections
   end
 
   # show all public collections
@@ -23,12 +24,14 @@ class CollectionsController < ApplicationController
   def create
     @user = current_user
     new_collection = Collection.create collection_params.merge user_id: current_user.id
+    render json: @new_collection
   end
 
   def show
     @user = current_user
     @collection = Collection.find params[:id]
     @artworks = Artwork.where(collection_id: @collection.id)
+    render json: @collection
   end
 
   #          PATCH  /travelers/:id(.:format)         travelers#update
@@ -50,7 +53,7 @@ class CollectionsController < ApplicationController
   private
 
     def collection_params
-      params.require(:collection).permit(:name, :is_private, :user_id)
+      params.require(:collection).permit(:title, :description, :is_private, :user_id)
     end
 
 end

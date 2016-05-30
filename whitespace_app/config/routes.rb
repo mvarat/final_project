@@ -5,12 +5,21 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  resources :collections do
+    member do
+      get :inactive
+      put :inactive
+    end
+    resources :artworks
+  end
+
 
   resources :users, only: [:new, :create]
-
-
-  post '/sessions' => "sessions#create", as: :creation_station
-  delete '/sessions' => "sessions#destroy", as: :deletion_station
+  get '/users/log_in' => "users#log_in", as: :log_in
+  get '/users/profile' => "users#profile", as: :profile
+  get '/users/profile/search' => "users#search", as: :search
+  post '/sessions' => "sessions#create", as: :create_session
+  delete '/sessions' => "sessions#destroy", as: :delete_session
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :collections
 
   namespace :api do
-    resources :artworks
+    resources :collections do
+      resources :artworks
+    end
   end
 
   resources :users, only: [:new, :create]

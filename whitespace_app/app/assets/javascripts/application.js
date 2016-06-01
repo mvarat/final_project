@@ -75,7 +75,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
       method: 'GET',
       url: 'https://api.artsy.net/api/search?q=' + searchTerm + '+more:pagemap:metatags-og_type:artwork',
       headers: {
-        'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49ps5s1UNlgFuRyMu0_534R3rKyfFipTxOYj4DUNubvaJkHh7aChVoP7upBNet1lIjlcTbAbRFdWIdweHuyyUHr-zOwCQZczTEVBKOZpNuI6IkUux3e9qvm-_l7WBRueLaRMLt3POjkTx7KwPn5vSzWX597R-JtU0AdiCAq1V_yVnGxs1YWsmhPFYD9-5Fo4Au-70elyRUdpvwWUfDWXFBU8="
+        'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
       }
     }
 
@@ -93,23 +93,33 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
   }
 
   // POST $http to save an artwork
-  $scope.saveArt = function (art) {
+  $scope.saveArt = function (art, c_id) {
     var newArtwork = {};
   var newArtwork = {
     artwork: {
       thumbnail: art.thumbnailImage,
       title: art.title,
       url: art.url,
-      collection_id: 1
+      collection_id: c_id
     }
   }
   console.log(newArtwork);
-$http.post('/api/artworks', newArtwork)
+  $http.post('/api/collections/' + newArtwork.artwork.collection_id + '/artworks', newArtwork)
     .success(function (newArtwork) {
-    console.log("added artwork to collection")
+    console.log("added artwork to collection: " + newArtwork.artworks.collection_id);
+      console.log(newArtwork);
   }).then(function(){
     $scope.artwork = {};
   })
 }
 
 }])
+
+ myApp.controller('CollectionsController', ['$scope', function($scope) {
+   $scope.collections = {
+     $http.get('/collections/')
+      .success(function(collections) {
+        console.log(collections);
+      }   
+   }
+}]);

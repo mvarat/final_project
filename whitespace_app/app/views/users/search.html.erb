@@ -14,17 +14,12 @@
     <img src= "{{artwork.thumbnailImage}}">
     <p>{{artwork.title}}</p>
 
-    <div ng-controller="CollectionController">
-      <form name="dropDownForm">
+
         <label for="mySelect">Select Collection:</label>
         <select name="mySelect" id="mySelect"
-          ng-options="collection.title for collection track by collection.id"
+          ng-options="collection.title for collection in collections"
           ng-model="data.selectedOption"></select>
-      </form>
-      <hr>
-      <tt>option = {{data.selectedOption}}</tt><br/>
-    </div>
-
-    <button name="button" ng-click="saveArt(artwork, collection.collection_id)">SAVE ART</button>
+      <tt>option = {{data.selectedOption.id}}</tt><br/>
+    <button name="button" ng-click="saveArt(artwork, data.selectedOption.id)">SAVE ART</button>
   </div>
 </div>

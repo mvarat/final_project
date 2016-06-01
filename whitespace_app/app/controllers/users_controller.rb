@@ -19,7 +19,8 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    @collections = Collection.where(user_id: @user)
+    @your_collections = Collection.where(user_id: @user)
+    @all_collections = Collection.all
   end
 
   def search

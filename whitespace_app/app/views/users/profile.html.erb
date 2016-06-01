@@ -2,5 +2,20 @@
 
 <h4><%= link_to "SEARCH ART", search_path %></h4>
 <h4><%= link_to "CREATE NEW COLLECTION", new_collection_path %></h4>
-<h4><%= link_to "YOUR COLLECTIONS", collections_path %></h4>
+<h4>YOUR COLLECTIONS</h4>
+<% @your_collections.each do |collection| %>
+  <%= link_to collection_path(collection.id) do %>
+    <div class = "collection">
+      <%= collection.title %>
+    </div>
+  <% end %>
+<% end %>
+
 <h4>EXPLORE COLLECTIONS</h4>
+<% @all_collections.each do |collection| %>
+  <%= link_to collection_path(collection.id) do %>
+    <div class = "collection">
+      <%= collection.title %></p>
+    </div>
+  <% end %>
+<% end %>

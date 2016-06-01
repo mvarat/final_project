@@ -24,7 +24,7 @@ class CollectionsController < ApplicationController
   def create
     @user = current_user
     new_collection = Collection.create collection_params.merge user_id: current_user.id
-    render json: @new_collection
+    redirect_to profile_path
   end
 
   def show
@@ -34,6 +34,8 @@ class CollectionsController < ApplicationController
       @artworks = Artwork.where(collection_id: @collection.id)
     render json: @collection
     else
+      @collection = Collection.find params[:id]
+      @artworks = Artwork.where(collection_id: @collection.id)
       render :show
     end
   end
@@ -47,11 +49,11 @@ class CollectionsController < ApplicationController
     redirect_to collection_path collection.id
   end
 
-  def inactive
+  def destroy
     @user = current_user
-    collection = Collection.find params[:id]
-    collection.update_attributes(active: false)
-    redirect_to collections_path
+    @collection = Collection.find params[:id]
+    @collection.destroy
+    redirect_to profile_path
   end
 
   private

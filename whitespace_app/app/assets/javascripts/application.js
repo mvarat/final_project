@@ -22,6 +22,13 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 
   $scope.artworks = [];
 
+  $http.get('/collections/')
+    .success(function(collections) {
+      $scope.collections = collections;
+      console.log(collections);
+    });
+
+
   // get artwork from Artsy and render it
   $scope.getArtwork = function () {
     var req = {
@@ -113,13 +120,6 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
   })
 }
 
-}])
 
- myApp.controller('CollectionsController', ['$scope', function($scope) {
-   $scope.collections = {
-     $http.get('/collections/')
-      .success(function(collections) {
-        console.log(collections);
-      }   
-   }
-}]);
+
+}])

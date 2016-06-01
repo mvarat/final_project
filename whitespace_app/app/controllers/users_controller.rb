@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     @collections = Collection.where(user_id: @user)
   end
 
+  def search
+    @user = current_user
+    @collections = Collection.where(user_id: @user)
+  end
   private
 
   def user_params

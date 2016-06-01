@@ -7,7 +7,7 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
-  <body ng-controller="WelcomeController">
+  <body>
     <div class="container">
       <% if !current_user %>
         <h1><%= link_to "whitespace", root_path, { :class=>"logo" } %></h1>

@@ -5,14 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :collections do
-    member do
-      get :inactive
-      put :inactive
-    end
+  resources :collections
+
+  namespace :api do
     resources :artworks
   end
-
 
   resources :users, only: [:new, :create]
   get '/users/log_in' => "users#log_in", as: :log_in

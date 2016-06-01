@@ -1,4 +1,4 @@
-class ArtworksController < ApplicationController
+class Api::ArtworksController < ApplicationController
 
   include SessionsHelper
 
@@ -10,15 +10,15 @@ class ArtworksController < ApplicationController
   end
 
   def create
-    @user = current_user
-    new_artwork = Artwork.create artwork_params.merge collection_id: params[:collection_id]
+    new_artwork = Artwork.create artwork_params
+    render json: {artworks: new_artwork }
   end
 
-  def new
-    @user = current_user
-    @collection = Collection.find params[:collection_id]
-    @artwork = Artwork.new
-  end
+  # def new
+  #   @user = current_user
+  #   @collection = Collection.find params[:collection_id]
+  #   @artwork = Artwork.new
+  # end
 
   def destroy
     @user = current_user
@@ -29,7 +29,7 @@ class ArtworksController < ApplicationController
   private
 
   def artwork_params
-    params.require(:artwork).permit(:title, :artist, :date, :url)
+    params.require(:artwork).permit(:title, :url, :collection_id, :thumbnail)
   end
 
 end

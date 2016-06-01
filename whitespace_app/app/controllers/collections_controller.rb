@@ -28,10 +28,14 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @collection = Collection.find params[:id]
-    @artworks = Artwork.where(collection_id: @collection.id)
+    if params[:format] === "json"
+      @user = current_user
+      @collection = Collection.find params[:id]
+      @artworks = Artwork.where(collection_id: @collection.id)
     render json: @collection
+    else
+      render :show
+    end
   end
 
   #          PATCH  /travelers/:id(.:format)         travelers#update

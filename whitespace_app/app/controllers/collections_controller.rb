@@ -34,6 +34,7 @@ class CollectionsController < ApplicationController
       @artworks = Artwork.where(collection_id: @collection.id)
     render json: @collection
     else
+      @user = current_user
       @collection = Collection.find params[:id]
       @artworks = Artwork.where(collection_id: @collection.id)
       render :show

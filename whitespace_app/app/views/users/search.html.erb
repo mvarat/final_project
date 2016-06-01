@@ -5,21 +5,17 @@
     <input type="button" class="btn" ng-click="search(term)" value="SEARCH">
   </form>
 
-  <div ng-repeat="artwork in artworks">
-    <!-- {{ artwork }} -->
-    <!-- <br>
-    <button name="button" ng-click="getArtwork()">GIVE ME ART!</button>
-    <br> -->
+  <div ng-repeat="artwork in artworks" class="search-results-container">
+    <div class="search-result">
+      <img src= "{{artwork.thumbnailImage}}">
+      <p>{{artwork.title}}</p>
 
-    <img src= "{{artwork.thumbnailImage}}">
-    <p>{{artwork.title}}</p>
-
-
-        <label for="mySelect">Select Collection:</label>
-        <select name="mySelect" id="mySelect"
-          ng-options="collection.title for collection in collections"
-          ng-model="data.selectedOption"></select>
+      <label for="mySelect">Select Collection:</label>
+      <select name="mySelect" id="mySelect"
+        ng-options="collection.title for collection in collections"
+        ng-model="data.selectedOption"></select>
       <tt>option = {{data.selectedOption.id}}</tt><br/>
-    <button name="button" ng-click="saveArt(artwork, data.selectedOption.id)">SAVE ART</button>
+      <button name="button" ng-click="saveArt(artwork, data.selectedOption.id)">SAVE ART</button>
+    </div>
   </div>
 </div>

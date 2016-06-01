@@ -33,3 +33,12 @@ body {
 a {
   text-decoration: none;
 }
+
+.search-result {
+  border: solid red;
+}
+
+.search-results-container {
+  border: solid red;
+  display: inline-flex;
+}

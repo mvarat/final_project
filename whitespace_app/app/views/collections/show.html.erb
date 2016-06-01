@@ -2,11 +2,14 @@
 
 <h4><%= @collection.description %></h4>
 
+<% if @user.id == @collection.user_id %>
+  <%= link_to "DELETE COLLECTION", collection_path(@collection), method: :delete %>
+<% end %>
+
+
+
   <% @artworks.each do |artwork| %>
 
     <img src="<%= artwork.thumbnail %>">
     <p><%= artwork.title %></p>
   <% end %>
-
-
-<%= link_to "DELETE", collection_path(@collection), method: :delete %>

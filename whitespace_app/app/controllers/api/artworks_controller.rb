@@ -14,11 +14,6 @@ class Api::ArtworksController < ApplicationController
     render json: {artworks: new_artwork }
   end
 
-  # def new
-  #   @user = current_user
-  #   @collection = Collection.find params[:collection_id]
-  #   @artwork = Artwork.new
-  # end
 
   def destroy
     @user = current_user

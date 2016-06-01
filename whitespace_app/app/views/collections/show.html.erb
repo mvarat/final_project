@@ -1,7 +1,12 @@
-<p>Show Collection</p>
-
 <h2><%= @collection.title %></h2>
 
 <h4><%= @collection.description %></h4>
+
+  <% @artworks.each do |artwork| %>
+
+    <img src="<%= artwork.thumbnail %>">
+    <p><%= artwork.title %></p>
+  <% end %>
+
 
 <%= link_to "DELETE", collection_path(@collection), method: :delete %>

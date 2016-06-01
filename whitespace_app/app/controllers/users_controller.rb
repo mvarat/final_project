@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     @your_collections = Collection.where(user_id: @user)
-    @all_collections = Collection.all
+    @all_collections = Collection.where(is_private: false)
   end
 
   def search

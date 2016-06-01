@@ -8,8 +8,9 @@
   <div ng-repeat="artwork in artworks" class="search-results-container">
     <div class="search-result">
       <img src= "{{artwork.thumbnailImage}}">
-      <p>{{artwork.title}}</p>
+      <!-- <p>{{artwork.title}}</p> -->
 
+      <br>
       <label for="mySelect">Select Collection:</label>
       <select name="mySelect" id="mySelect"
         ng-options="collection.title for collection in collections"

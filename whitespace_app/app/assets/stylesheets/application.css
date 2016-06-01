@@ -39,6 +39,12 @@ a {
 }
 
 .search-results-container {
+  justify-content: flex-end;
   border: solid red;
   display: inline-flex;
+}
+
+.search-result img {
+  max-width: 400px;
+  max-height: 400px;
 }

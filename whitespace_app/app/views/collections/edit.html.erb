@@ -26,7 +26,7 @@
     <p><%= artwork.collection_id %></p>
     <p><%= artwork.id %></p>
     <h4><%= link_to "X", api_collection_artwork_path(artwork.collection_id, artwork.id), method: :delete %></h4>
-  
+    <h6><%= button_to "Set Default", set_default_path(artwork), method: :put %></h6>
   <% end %>
 
 <% end %>

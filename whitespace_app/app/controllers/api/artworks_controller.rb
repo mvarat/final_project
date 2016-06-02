@@ -30,6 +30,14 @@ class Api::ArtworksController < ApplicationController
     redirect_to edit_collection_path artwork.collection_id
   end
 
+  def set_deault
+    @user = current_user
+    collection = Collection.find params[:collection_id]
+    artwork = Artwork.find params[:id]
+    collection.default_image = artwork.thumbnail
+    redirect_to all_orders_path
+  end
+
   private
 
   def artwork_params

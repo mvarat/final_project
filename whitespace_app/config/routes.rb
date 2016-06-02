@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/users/profile/search' => "users#search", as: :search
   post '/sessions' => "sessions#create", as: :create_session
   delete '/sessions' => "sessions#destroy", as: :delete_session
+  get '/collections/:id/set_default' => "collections#set_default", as: :set_default
+  put '/collections/:id/set_default' => "collections#set_default"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

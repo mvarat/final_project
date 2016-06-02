@@ -22,13 +22,14 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 
   $scope.artworks = [];
 
+  // get the user's collections for dropdown
   $http.get('/collections/')
     .success(function(collections) {
       $scope.collections = collections;
-      console.log(collections);
     });
 
-  // get additional artwork
+  // get artwork
+  // this function is not being used because of an error relating to "cross-origin requests that require preflight"
   $scope.getArtwork = function (artworkUrl) {
     var req = {
       method: 'GET',
@@ -63,12 +64,13 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
     }
 
     $http(artistReq).then(function(response){
-      console.log(response);
-      console.log(response.data._embedded.artists[0].name);
+      // console.log(response);
+      // console.log(response.data._embedded.artists[0].name);
       $scope.artist = response.data._embedded.artists[0].name;
     });
   }
 
+  // search for an artist by search term
   $scope.search = function (searchTerm) {
     console.log("Search Term: " + searchTerm)
     $scope.artworks = [];
@@ -80,8 +82,9 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
       }
     }
 
+    // store search results in artworks [] to be rendered on search page
     $http(searchReq).then(function(response){
-      console.log("search response:");
+      // console.log("search response:");
       response.data._embedded.results.forEach(function(data){
         var newArt = {};
         newArt.thumbnailImage = data._links.thumbnail.href;
@@ -91,14 +94,14 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
           $scope.artworks.push( newArt );
         }
       });
-      console.log($scope.artworks);
+      // console.log($scope.artworks);
     });
   }
 
-  
+  // test getArtwork function ( not working)
   // $scope.getArtwork("https://api.artsy.net/api/artworks/heinrich-hoerle-helft-dem-kruppel-help-the-cripples");
 
-  // POST $http to save an artwork
+  // POST $http to save an artwork to specified collection
   $scope.saveArt = function (art, c_id) {
     var newArtwork = {};
   var newArtwork = {
@@ -109,11 +112,9 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
       collection_id: c_id
     }
   }
-  console.log(newArtwork);
   $http.post('/api/collections/' + newArtwork.artwork.collection_id + '/artworks', newArtwork)
     .success(function (newArtwork) {
-    console.log("added artwork to collection: " + newArtwork.artworks.collection_id);
-      console.log(newArtwork);
+    // console.log("added artwork to collection: " + newArtwork.artworks.collection_id);
   }).then(function(){
     $scope.artwork = {};
   })

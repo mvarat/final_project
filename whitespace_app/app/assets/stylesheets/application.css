@@ -28,6 +28,8 @@ body {
   margin: 1em;
   color: white;
   font-size: 2em;
+  background-position: center;
+  background-size: cover;
 }
 
 a {
@@ -39,7 +41,6 @@ a:hover {
   text-decoration: none;
   color: black;
 }
-
 
 .search-result {
   border: solid red;
@@ -76,6 +77,11 @@ a:hover {
   min-height: 500px;
 }
 
+.edit-img {
+  max-height: 150px;
+  min-height: 150px;
+}
+
 
 body {
   background-image: url('whitewall.jpg');
@@ -88,4 +94,32 @@ input:focus {
 input {
     outline:none;
     border: solid white;
+}
+
+h1 {
+  margin: 0;
+}
+
+.clear-btn {
+  font-family: futura;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: solid black;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+ }
+
+.edit-collection-artwork-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.edit-collection-artwork {
+  border: solid red;
+}
+
+.text-input {
+  width: 50%;
+  height: 2em;
 }

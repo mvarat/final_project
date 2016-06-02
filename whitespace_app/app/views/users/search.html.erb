@@ -2,7 +2,8 @@
 <div ng-controller="ArtworksController">
   <form>
     <input ng-model="term" id="search-box">
-    <input type="button" class="btn" ng-click="search(term)" value="SEARCH">
+    <br>
+    <input type="button" class="clear-btn" ng-click="search(term)" value="SEARCH">
   </form>
 
   <div ng-repeat="artwork in artworks" class="search-results-container">
@@ -19,8 +20,7 @@
         <select name="mySelect" id="mySelect"
           ng-options="collection.title for collection in collections"
           ng-model="data.selectedOption"></select>
-          <tt>option = {{data.selectedOption.id}}</tt><br/>
-          <button name="button" ng-click="saveArt(artwork, data.selectedOption.id); addForm = !addForm">SAVE ART</button>
+          <button name="button" ng-click="saveArt(artwork, data.selectedOption.id); addForm = !addForm" class="clear-btn">SAVE ART</button>
       </div>
     </div>
   </div>

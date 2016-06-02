@@ -32,6 +32,7 @@ body {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 .search-result {
@@ -47,4 +48,38 @@ a {
 .search-result img {
   max-width: 400px;
   max-height: 400px;
+}
+
+#search-box {
+  width: 400px;
+  height: 100px;
+}
+
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+.carousel-indicators li { visibility: hidden; }
+
+.carousel-inner img {
+  margin: auto;
+}
+
+.car-img {
+  max-height: 500px;
+  min-height: 500px;
+}
+
+
+body {
+  background-image: url('whitewall.jpg');
+}
+
+input:focus {
+    outline:none;
+    border: solid white;
+}
+input {
+    outline:none;
+    border: solid white;
 }

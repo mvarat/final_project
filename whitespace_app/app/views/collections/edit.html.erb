@@ -1,0 +1,32 @@
+<% if @user.id == @collection.user_id %>
+
+<h3>EDIT COLLECTION</h3>
+
+<h4><%= link_to "DELETE COLLECTION", collection_path(@collection), method: :delete %></h4>
+
+  <%= form_for @collection do |f| %>
+
+    <%= f.label :title, "Item Name" %>
+    <%= f.text_field :title%>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.radio_button :is_private, true %>
+    <%= label :is_private, "Private Collection" %>
+    <%= f.radio_button :is_private, false %>
+    <%= label :is_private, "Public Collection" %>
+    <br>
+    <%= f.submit %>
+    <% end %>
+
+  <% @artworks.each do |artwork| %>
+    <img src="<%= artwork.thumbnail %>">
+    <p><%= artwork.title %></p>
+    <p><%= artwork.collection_id %></p>
+    <p><%= artwork.id %></p>
+    <h4><%= link_to "X", api_collection_artwork_path(artwork.collection_id, artwork.id), method: :delete %></h4>
+  
+  <% end %>
+
+<% end %>

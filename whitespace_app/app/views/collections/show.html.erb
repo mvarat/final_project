@@ -3,7 +3,7 @@
 <h4><%= @collection.description %></h4>
 
 <% if @user.id == @collection.user_id %>
-  <h4><%= link_to "DELETE COLLECTION", collection_path(@collection), method: :delete %></h4>
+  <h4><%= link_to "EDIT COLLECTION", edit_collection_path(@collection) %></h4>
   <h4><%= link_to "ADD ARTWORK", search_path %></h4>
 <% end %>
 

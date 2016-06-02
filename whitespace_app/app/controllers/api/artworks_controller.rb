@@ -27,6 +27,7 @@ class Api::ArtworksController < ApplicationController
     @user = current_user
     artwork = Artwork.find params[:id]
     artwork.destroy
+    redirect_to edit_collection_path artwork.collection_id
   end
 
   private

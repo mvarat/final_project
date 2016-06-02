@@ -43,6 +43,12 @@ class CollectionsController < ApplicationController
 
   #          PATCH  /travelers/:id(.:format)         travelers#update
   #          PUT    /travelers/:id(.:format)         travelers#update
+  def edit
+    @user = current_user
+    @collection= Collection.find params[:id]
+    @artworks = Artwork.where(collection_id: @collection.id)
+  end
+
   def update
     @user = current_user
     collection = Collection.find params[:id]

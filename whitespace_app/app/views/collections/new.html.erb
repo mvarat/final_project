@@ -7,9 +7,10 @@
 
   <%= f.label :description %>
   <%= f.text_field :description %>
-
-  <%= f.label :is_private %>
-  <%= f.password_field :is_private %>
-
+<br>
+  <%= f.radio_button :is_private, true %>
+  <%= label :is_private, "Private Collection" %>
+  <%= f.radio_button :is_private, false %>
+  <%= label :is_private, "Public Collection" %>
   <%= f.submit %>
 <% end %>

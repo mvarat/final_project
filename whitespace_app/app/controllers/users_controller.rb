@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = current_user
     @your_collections = Collection.where(user_id: @user)
     @all_collections = Collection.where.not(user_id: @user)
+    @all_collections  = @all_collections.where(is_private: false)
   end
 
   def search

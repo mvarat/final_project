@@ -4,9 +4,17 @@ class Api::ArtworksController < ApplicationController
 
   # show all artworks in collection
   def index
-    @user = current_user
-    @collection = Collection.find params[:collection_id]
-    @artworks = Artwork.where(collection_id: @collection.id)
+    if params[:format] === "json"
+      @user = current_user
+      @collection = Collection.find params[:collection_id]
+      @artworks = Artwork.where(collection_id: @collection.id)
+      render json: @artworks
+    else
+      @user = current_user
+      @collection = Collection.find params[:collection_id]
+      @artworks = Artwork.where(collection_id: @collection.id)
+      render :index
+    end
   end
 
   def create

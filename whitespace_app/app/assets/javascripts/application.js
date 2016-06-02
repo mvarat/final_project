@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require angular-ui-bootstrap
 
-console.log("loaded");
-//
-var myApp = angular.module("MyApp", [] );
+// console.log("loaded");
+var myApp = angular.module("MyApp", ["ui.bootstrap"]);
 
 myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $http){
 

@@ -93,7 +93,9 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
         newArt.thumbnailImage = data._links.thumbnail.href;
         newArt.title = data.title;
         newArt.url = data._links.self.href;
-        $scope.artworks.push( newArt );
+        if (newArt.thumbnailImage != "/images/icon-152.png") {
+          $scope.artworks.push( newArt );
+        }
       });
       console.log($scope.artworks);
     });

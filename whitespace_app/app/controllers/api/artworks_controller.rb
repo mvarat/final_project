@@ -35,7 +35,6 @@ class Api::ArtworksController < ApplicationController
     collection = Collection.find params[:collection_id]
     artwork = Artwork.find params[:id]
     collection.default_image = artwork.thumbnail
-    redirect_to all_orders_path
   end
 
   private

@@ -23,10 +23,15 @@
   <% @artworks.each do |artwork| %>
     <img src="<%= artwork.thumbnail %>">
     <p><%= artwork.title %></p>
-    <p><%= artwork.collection_id %></p>
-    <p><%= artwork.id %></p>
+  
     <h4><%= link_to "X", api_collection_artwork_path(artwork.collection_id, artwork.id), method: :delete %></h4>
-    <h6><%= button_to "Set Default", set_default_path(artwork), method: :put %></h6>
+    <h6>
+      <%= form_tag collection_path(@collection), method: "put" do %>
+        <%= hidden_field_tag 'collection[default_image]', artwork.thumbnail %>
+        <%= submit_tag "Default" %>
+      <% end %>
+
+  </h6>
   <% end %>
 
 <% end %>

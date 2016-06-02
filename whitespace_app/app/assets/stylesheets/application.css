@@ -21,8 +21,8 @@ body {
 .collection {
   justify-content: center;
   text-align: center;
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   background-color: black;
   display: inline-flex;
   margin: 1em;
@@ -34,6 +34,12 @@ a {
   text-decoration: none;
   color: white;
 }
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
 
 .search-result {
   border: solid red;

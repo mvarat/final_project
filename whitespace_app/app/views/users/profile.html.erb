@@ -14,7 +14,7 @@
 <h4>EXPLORE COLLECTIONS</h4>
 <% @all_collections.each do |collection| %>
   <%= link_to collection_path(collection.id) do %>
-    <div class = "collection">
+    <div class="collection" style="background-image: url('<%= collection.default_image %>');">
       <%= collection.title %>
     </div>
   <% end %>

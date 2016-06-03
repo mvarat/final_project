@@ -50,6 +50,10 @@ body {
   background-size: cover;
 }
 
+.collection:hover {
+  color: grey;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -77,8 +81,9 @@ a:hover {
 }
 
 #search-box {
-  width: 90%;
-  height: 100%;
+  width: 300px;
+  height: 40px;
+  position: absolute;
 }
 
 
@@ -97,8 +102,8 @@ a:hover {
 }
 
 .edit-img {
-  max-height: 150px;
-  min-height: 150px;
+  max-height: 200px;
+  max-width: 200px;
 }
 
 input:focus {
@@ -119,9 +124,10 @@ h1 {
   background-color: Transparent;
   background-repeat:no-repeat;
   border: solid black;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
   outline:none;
+  margin: 0;
  }
 
 .edit-collection-artwork-container {
@@ -131,7 +137,7 @@ h1 {
 
 .edit-collection-artwork {
   margin: 2em;
-  border: solid red;
+  text-align: right;
 }
 
 .text-input {
@@ -147,18 +153,31 @@ h1 {
   padding-top: 0
 }
 
+.x-delete{
+  padding-top: 0;
+  position: relative;
+  top: -20px;
+  font-size: 2em;
+  color: red;
+
+}
+
 .logo {
   position: fixed;
   bottom: 20px;
   right: 20px;
   font-size: 1.5em;
+  z-index: 100;
 }
 
 .search-form {
   margin: auto;
+  margin-top: 1em;
   width: 40%;
-  border: solid grey 1px;
-  opacity: 0.4;
+  opacity: 0.7;
+  display: inline-block;
+  height: 40px;
+  position: fixed;
 }
 
 .glyphicon {
@@ -186,4 +205,55 @@ h1 {
 .glyphicon.glyphicon-pencil {
   display: inline;
   font-size: 20px;
+}
+
+.searchbar-icon {
+  left: 250px;
+}
+
+.add-art {
+  font-size: 2em;
+  margin-top: 3em;
+  display: inline;
+  color: grey;
+}
+
+#mySelect {
+  border: solid white;
+  border-radius: 0;
+}
+
+#mySelect:focus {
+    outline: none;
+    border: solid white;
+}
+
+input[type='radio'] {
+  -webkit-appearance:none;
+  width:20px;
+  height:20px;
+  border:1px solid darkgray;
+  border-radius:50%;
+  outline:none;
+  box-shadow:0 0 5px 0px gray inset;
+}
+
+input[type='radio']:before {
+  content:'';
+  display:block;
+  width:60%;
+  height:60%;
+  margin: 20% auto;
+  border-radius:50%;
+}
+
+input[type='radio']:checked:before {
+  background:red;
+}
+
+input, textarea, select, a { outline: none; }
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
 }

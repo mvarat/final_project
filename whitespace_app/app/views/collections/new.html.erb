@@ -10,9 +10,9 @@
   <br>
   <%= f.text_field :description, class: 'text-input' %>
   <br>
-  <%= f.radio_button :is_private, true %>
+  <%= f.radio_button :is_private, true, class: 'radio'%>
   <%= label :is_private, "Private Collection" %>
-  <%= f.radio_button :is_private, false %>
+  <%= f.radio_button :is_private, false, class: 'radio' %>
   <%= label :is_private, "Public Collection" %>
   <br>
   <%= f.submit class: 'clear-btn' %>

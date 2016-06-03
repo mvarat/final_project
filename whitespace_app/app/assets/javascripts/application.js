@@ -20,6 +20,19 @@ var myApp = angular.module("MyApp", ["ui.bootstrap"]);
 
 myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $http){
 
+// var xappToken = "";
+//
+//   // get token;
+// $scope.getToken = function(){
+//   $http.post('https://api.artsy.net/api/tokens/xapp_token')
+//     .send({ client_id: clientID, client_secret: clientSecret })
+//     .end(function(res) {
+//       xappToken = res.body.token;
+//       console.log("token:");
+//       console.log(xappToken);
+//   });
+// }
+
   $scope.artworks = [];
 
   // get the user's collections for dropdown
@@ -27,6 +40,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
     .success(function(collections) {
       $scope.collections = collections;
     });
+
 
   // get artwork
   // this function is not being used because of an error relating to "cross-origin requests that require preflight"

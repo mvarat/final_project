@@ -2,7 +2,7 @@
   <h4>YOUR COLLECTIONS</h4>
 </div>
 <div class="collection-container">
-  <% @your_collections.each do |collection| %>
+  <% @your_collections.reverse_each do |collection| %>
     <%= link_to collection_path(collection.id) do %>
       <div class="collection" style="background-image: url('<%= collection.default_image %>');">
         <%= collection.title %>
@@ -14,7 +14,7 @@
 <h4>EXPLORE COLLECTIONS</h4>
 </div>
 <div class="collection-container">
-  <% @all_collections.each do |collection| %>
+  <% @all_collections.reverse_each do |collection| %>
     <%= link_to collection_path(collection.id) do %>
       <div class="collection" style="background-image: url('<%= collection.default_image %>');">
         <%= collection.title %>

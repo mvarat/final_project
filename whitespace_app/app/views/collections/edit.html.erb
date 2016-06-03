@@ -25,15 +25,15 @@
   <div class="edit-collection-artwork-container">
     <% @artworks.each do |artwork| %>
       <div class="edit-collection-artwork">
-        <img src="<%= artwork.thumbnail %>" class="edit-img">
+        <img src="<%= artwork.thumbnail %>" class="edit-img" title="{{artwork.title}}">
         <!-- <p><%= artwork.title %></p> -->
-        <h4><%= link_to "X", api_collection_artwork_path(artwork.collection_id, artwork.id), method: :delete %></h4>
-        <h6>
+        <br>
+        <%= link_to "X", api_collection_artwork_path(artwork.collection_id, artwork.id), method: :delete,  class: "x-delete" %>
           <%= form_tag collection_path(@collection), method: "put" do %>
             <%= hidden_field_tag 'collection[default_image]', artwork.thumbnail %>
-            <%= submit_tag "SET AS WALLPAPER", class: 'clear-btn' %>
+            <%= submit_tag "SET AS WALLPAPER", class: 'clear-btn wallpaper-btn' %>
           <% end %>
-        </h6>
+
       </div>
     <% end %>
   </div>

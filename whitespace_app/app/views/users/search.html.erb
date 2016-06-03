@@ -1,10 +1,9 @@
 <div ng-controller="ArtworksController">
   <form class="search-form">
     <input ng-model="term" id="search-box" placeholder="Search...">
-    <span class="input-group-btn">
-        <input type="button" ng-click="search(term)" value="SEARCH">
-    </span>
+    <button type="button" ng-click="search(term)"><span class="glyphicon glyphicon-search searchbar-icon"></span> </button>
   </form>
+  <br>
 
   <div ng-repeat="artwork in artworks" class="search-results-container">
     <div class="search-result">
@@ -16,14 +15,12 @@
       </a>
 
       <div class="add-form" ng-show="addForm">
-        <label for="mySelect">SELECT:</label>
+        <label for="mySelect">SELECT COLLECTION:</label>
+        <br>
         <select name="mySelect" id="mySelect"
           ng-options="collection.title for collection in collections"
           ng-model="data.selectedOption"></select>
           <button name="button" ng-click="saveArt(artwork, data.selectedOption.id); addForm = !addForm" class="clear-btn">SAVE</button>
-
-      
-
       </div>
     </div>
   </div>

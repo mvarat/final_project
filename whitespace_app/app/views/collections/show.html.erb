@@ -18,41 +18,46 @@
   </div>
 <% end %>
 
-<div id="collection-carousel" class="carousel slide">
-  <% @artworks.each_with_index do |artwork, index| %>
-  <ol class="carousel-indicators">
+<% if @artworks.blank? %>
+  <div class="add-art">
+    <%= link_to "ADD ART +".html_safe, search_path %>
+  </div>
+<% else %>
+  <div id="collection-carousel" class="carousel slide">
+    <% @artworks.each_with_index do |artwork, index| %>
+      <ol class="carousel-indicators">
       <% if index == 0 %>
         <li data-target="#collection-carousel" data-slide-to="<%= artwork %>" class="active" ></li>
       <% else %>
         <li data-target="#collection-carousel" data-slide-to="<%= artwork %>" ></li>
       <% end %>
-  </ol>
-  <% end %>
-
-  <div class="carousel-inner">
-    <% @artworks.each_with_index do |artwork, index| %>
-      <% if index == 0 %>
-        <div class="item active">
-          <img src="<%= artwork.thumbnail %>" class="car-img">
-          <div class="carousel-caption">
-            <p><%= artwork.title %></p>
-          </div>
-        </div>
-        <% else %>
-        <div class="item">
-          <img src="<%= artwork.thumbnail %>" class="car-img">
-          <div class="carousel-caption">
-            <p><%= artwork.title %></p>
-          </div>
-        </div>
-      <% end %>
+      </ol>
     <% end %>
-  </div>
+    <div class="carousel-inner">
+      <% @artworks.each_with_index do |artwork, index| %>
+        <% if index == 0 %>
+          <div class="item active">
+            <img src="<%= artwork.thumbnail %>" class="car-img">
+            <div class="carousel-caption">
+              <p><%= artwork.title %></p>
+            </div>
+          </div>
+        <% else %>
+          <div class="item">
+            <img src="<%= artwork.thumbnail %>" class="car-img">
+            <div class="carousel-caption">
+              <p><%= artwork.title %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
-  <a class="left carousel-control" href="#collection-carousel" data-slide="prev">
-    <span class="icon-prev"></span>
-  </a>
-  <a class="right carousel-control" href="#collection-carousel" data-slide="next">
-    <span class="icon-next"></span>
-  </a>
-</div>
+    <a class="left carousel-control" href="#collection-carousel" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#collection-carousel" data-slide="next">
+      <span class="icon-next"></span>
+    </a>
+  </div>
+<% end %>

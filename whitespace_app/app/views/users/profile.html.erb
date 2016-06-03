@@ -1,6 +1,4 @@
-<div class="collection-type">
-  <h4>YOUR COLLECTIONS</h4>
-</div>
+<div class="collection-type">YOUR COLLECTIONS</div>
 <div class="collection-container">
   <% @your_collections.reverse_each do |collection| %>
     <%= link_to collection_path(collection.id) do %>
@@ -10,9 +8,7 @@
     <% end %>
   <% end %>
 </div>
-<div class="collection-type">
-<h4>EXPLORE COLLECTIONS</h4>
-</div>
+<div class="collection-type">EXPLORE COLLECTIONS</div>
 <div class="collection-container">
   <% @all_collections.reverse_each do |collection| %>
     <%= link_to collection_path(collection.id) do %>

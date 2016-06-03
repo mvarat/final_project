@@ -26,8 +26,7 @@ body {
 
 .collection-type {
   position: fixed;
-  left: 10%;
-  margin: 2em;
+  font-size: 2em;
 }
 
 .collection-container {
@@ -51,7 +50,7 @@ body {
 }
 
 .collection:hover {
-  color: grey;
+  color: red;
 }
 
 a {
@@ -61,7 +60,7 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: black;
+  color: red;
 }
 
 .search-result {
@@ -128,7 +127,25 @@ h1 {
   overflow: hidden;
   outline:none;
   margin: 0;
+  color: black;
+  font-size: 14px;
  }
+
+ .edit-btn {
+   font-family: futura;
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: solid blue;
+   padding: 5px;
+   margin-bottom: 10px;
+   cursor: pointer;
+   overflow: hidden;
+   outline:none;
+   margin: 0;
+   color: black;
+   font-size: 14px;
+   height: 30px;
+  }
 
 .edit-collection-artwork-container {
   display: inline-flex;
@@ -204,7 +221,8 @@ h1 {
 
 .glyphicon.glyphicon-pencil {
   display: inline;
-  font-size: 20px;
+  font-size: 15px;
+  color: grey;
 }
 
 .searchbar-icon {

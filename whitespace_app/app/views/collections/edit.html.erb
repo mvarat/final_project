@@ -1,26 +1,25 @@
 <% if @user.id == @collection.user_id %>
 
-<h3>EDIT COLLECTION</h3>
-
-<h4><%= link_to "DELETE COLLECTION", collection_path(@collection), method: :delete %></h4>
-
   <%= form_for @collection do |f| %>
 
-    <%= f.label :title, "Title" %>
+    <%= f.label :title, "TITLE" %>
     <br>
-    <%= f.text_field :title%>
+    <%= f.text_field :title, class: 'text-input'%>
     <br>
-    <%= f.label :description %>
+    <%= f.label :description, "DESCRIPTION" %>
     <br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'text-input' %>
     <br>
     <%= f.radio_button :is_private, true %>
     <%= label :is_private, "PRIVATE" %>
     <%= f.radio_button :is_private, false %>
     <%= label :is_private, "PUBLIC" %>
     <br>
-    <%= f.submit class: 'clear-btn' %>
+    <%= f.submit "UPDATE", class: 'edit-btn' %>
     <% end %>
+
+  <%= link_to "DELETE", collection_path(@collection), method: :delete, class: 'edit-btn' %>
+
 
   <div class="edit-collection-artwork-container">
     <% @artworks.each do |artwork| %>

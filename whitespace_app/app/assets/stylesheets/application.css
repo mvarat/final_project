@@ -15,7 +15,13 @@
  */
 
 body {
+  background-image: url('whitewall.jpg');
   font-family: helvetica;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 .collection {
@@ -43,13 +49,14 @@ a:hover {
 }
 
 .search-result {
-  border: solid red;
+  /*border: solid red;*/
 }
 
 .search-results-container {
-  justify-content: flex-end;
-  border: solid red;
-  display: inline-flex;
+  justify-content: center;
+  /*border: solid red;*/
+  display: flex;
+  margin: 1em;
 }
 
 .search-result img {
@@ -58,8 +65,8 @@ a:hover {
 }
 
 #search-box {
-  width: 400px;
-  height: 100px;
+  width: 90%;
+  height: 100%;
 }
 
 
@@ -80,11 +87,6 @@ a:hover {
 .edit-img {
   max-height: 150px;
   min-height: 150px;
-}
-
-
-body {
-  background-image: url('whitewall.jpg');
 }
 
 input:focus {
@@ -122,4 +124,26 @@ h1 {
 .text-input {
   width: 50%;
   height: 2em;
+}
+
+.plus {
+  font-size: 3em;
+  color: red;
+  text-align: right;
+  margin-top: -35px;
+  padding-top: 0
+}
+
+.logo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5em;
+}
+
+.search-form {
+  margin: auto;
+  width: 40%;
+  border: solid grey 1px;
+  opacity: 0.4;
 }

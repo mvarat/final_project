@@ -24,7 +24,7 @@
       <% else %>
         <h1><%= link_to "whitespace", profile_path, { :class=>"logo" } %></h1>
         <div class = "log-in">
-          <h5><%= link_to "Log Out", delete_session_path, method: :delete %></h5>
+          <h5><%= link_to '<i class="glyphicon glyphicon-log-out"></i>', delete_session_path, method: :delete %></h5>
         </div>
       <% end %>
       <%= yield %>

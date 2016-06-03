@@ -1,18 +1,18 @@
-<h3>search artwork</h3>
 <div ng-controller="ArtworksController">
-  <form>
-    <input ng-model="term" id="search-box">
-    <br>
-    <input type="button" class="clear-btn" ng-click="search(term)" value="SEARCH">
+  <form class="search-form">
+    <input ng-model="term" id="search-box" placeholder="Search...">
+    <span class="input-group-btn">
+        <input type="button" ng-click="search(term)" value="SEARCH">
+    </span>
   </form>
 
   <div ng-repeat="artwork in artworks" class="search-results-container">
     <div class="search-result">
-      <img src= "{{artwork.thumbnailImage}}">
-      <p>{{artwork.title}}</p>
+      <img src= "{{artwork.thumbnailImage}}" title="{{artwork.title}}">
+      <!-- <p>{{artwork.title}}</p> -->
       <br>
       <a ng-click="addForm = !addForm">
-        <h1>+</h1>
+        <div class="plus">+</div>
       </a>
 
       <div class="add-form" ng-show="addForm">

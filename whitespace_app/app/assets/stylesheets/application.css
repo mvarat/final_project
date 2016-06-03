@@ -118,6 +118,7 @@ h1 {
 }
 
 .edit-collection-artwork {
+  margin: 2em;
   border: solid red;
 }
 

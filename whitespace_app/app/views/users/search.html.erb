@@ -16,11 +16,11 @@
       </a>
 
       <div class="add-form" ng-show="addForm">
-        <label for="mySelect">Select Collection:</label>
+        <label for="mySelect">SELECT:</label>
         <select name="mySelect" id="mySelect"
           ng-options="collection.title for collection in collections"
           ng-model="data.selectedOption"></select>
-          <button name="button" ng-click="saveArt(artwork, data.selectedOption.id); addForm = !addForm" class="clear-btn">SAVE ART</button>
+          <button name="button" ng-click="saveArt(artwork, data.selectedOption.id); addForm = !addForm" class="clear-btn">SAVE</button>
       </div>
     </div>
   </div>

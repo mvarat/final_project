@@ -26,7 +26,7 @@
     <% @artworks.each do |artwork| %>
       <div class="edit-collection-artwork">
         <img src="<%= artwork.thumbnail %>" class="edit-img">
-        <p><%= artwork.title %></p>
+        <!-- <p><%= artwork.title %></p> -->
         <h4><%= link_to "X", api_collection_artwork_path(artwork.collection_id, artwork.id), method: :delete %></h4>
         <h6>
           <%= form_tag collection_path(@collection), method: "put" do %>

@@ -1,19 +1,24 @@
-<h4><%= link_to "SEARCH ART", search_path %></h4>
-<h4><%= link_to "CREATE NEW COLLECTION", new_collection_path %></h4>
-<h4>YOUR COLLECTIONS</h4>
-<% @your_collections.each do |collection| %>
-  <%= link_to collection_path(collection.id) do %>
-    <div class="collection" style="background-image: url('<%= collection.default_image %>');">
-      <%= collection.title %>
-    </div>
+<div class="collection-type">
+  <h4>YOUR COLLECTIONS</h4>
+</div>
+<div class="collection-container">
+  <% @your_collections.each do |collection| %>
+    <%= link_to collection_path(collection.id) do %>
+      <div class="collection" style="background-image: url('<%= collection.default_image %>');">
+        <%= collection.title %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-
+</div>
+<div class="collection-type">
 <h4>EXPLORE COLLECTIONS</h4>
-<% @all_collections.each do |collection| %>
-  <%= link_to collection_path(collection.id) do %>
-    <div class="collection" style="background-image: url('<%= collection.default_image %>');">
-      <%= collection.title %>
-    </div>
+</div>
+<div class="collection-container">
+  <% @all_collections.each do |collection| %>
+    <%= link_to collection_path(collection.id) do %>
+      <div class="collection" style="background-image: url('<%= collection.default_image %>');">
+        <%= collection.title %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

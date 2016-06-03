@@ -24,13 +24,25 @@ body {
   width: 100%;
 }
 
+.collection-type {
+  position: fixed;
+  left: 10%;
+  margin: 2em;
+}
+
+.collection-container {
+  margin-top: 3em;
+  position: static;
+  display: inline-flex;
+}
+
 .collection {
   justify-content: center;
   text-align: center;
   height: 200px;
   width: 200px;
   background-color: black;
-  display: inline-flex;
+  /*display: inline;*/
   margin: 1em;
   color: white;
   font-size: 2em;
@@ -55,7 +67,7 @@ a:hover {
 .search-results-container {
   justify-content: center;
   /*border: solid red;*/
-  display: flex;
+  display: inline-flex;
   margin: 1em;
 }
 
@@ -147,4 +159,31 @@ h1 {
   width: 40%;
   border: solid grey 1px;
   opacity: 0.4;
+}
+
+.glyphicon {
+    font-size: 30px;
+}
+
+.log-out {
+  position: fixed;
+  bottom: 25px;
+  right: 320px;
+}
+
+.search {
+  position: fixed;
+  bottom: 25px;
+  right: 373px;
+}
+
+.add-collection {
+  position: fixed;
+  bottom: 25px;
+  right: 420px;
+}
+
+.glyphicon.glyphicon-pencil {
+  display: inline;
+  font-size: 20px;
 }

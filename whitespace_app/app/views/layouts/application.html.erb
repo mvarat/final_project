@@ -23,8 +23,16 @@
         </div>
       <% else %>
         <h1><%= link_to "whitespace", profile_path, { :class=>"logo" } %></h1>
-        <div class = "log-in">
-          <h5><%= link_to '<i class="glyphicon glyphicon-log-out"></i>', delete_session_path, method: :delete %></h5>
+        <div class = "log-out">
+          <%= link_to "<span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, delete_session_path, method: :delete %>
+          <!-- <h5><%= link_to '<i class="glyphicon glyphicon-log-out"></i>', delete_session_path, method: :delete %></h5> -->
+        </div>
+        <div class="search">
+          <%= link_to "<span class=\"glyphicon glyphicon-search\"></span>".html_safe, search_path %>
+        </div>
+        <div class="add-collection">
+        <!-- <h4><%= link_to "CREATE NEW COLLECTION", new_collection_path %></h4> -->
+          <%= link_to "<span class=\"glyphicon glyphicon-plus\"></span>".html_safe, new_collection_path %>
         </div>
       <% end %>
       <%= yield %>

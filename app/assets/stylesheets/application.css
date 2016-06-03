@@ -15,7 +15,7 @@
  */
 
 body {
-  background-image: url('./images/whitewall.jpg');
+  background-image: url('/images/whitewall.jpg');
   font-family: helvetica;
   background-size: cover;
   background-attachment: fixed;

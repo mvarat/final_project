@@ -1,0 +1,284 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ //= require_tree .
+ //= require_self
+
+ */
+
+body {
+  background-image: url('<%= asset_path("whitewall.jpg") %>');
+  font-family: helvetica;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+.collection-type {
+  position: fixed;
+  font-size: 2em;
+}
+
+.collection-container {
+  margin-top: 3em;
+  position: static;
+  display: inline-flex;
+}
+
+.collection {
+  justify-content: center;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  background-color: black;
+  /*display: inline;*/
+  margin: 1em;
+  color: white;
+  font-size: 2em;
+  background-position: center;
+  background-size: cover;
+}
+
+.collection:hover {
+  color: red;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+.search-result {
+  /*border: solid red;*/
+}
+
+.search-results-container {
+  justify-content: center;
+  /*border: solid red;*/
+  display: inline-flex;
+  margin: 1em;
+}
+
+.search-result img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+#search-box {
+  width: 300px;
+  height: 40px;
+  position: absolute;
+}
+
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+.carousel-indicators li { visibility: hidden; }
+
+.carousel-inner img {
+  margin: auto;
+}
+
+.car-img {
+  max-height: 500px;
+  min-height: 500px;
+}
+
+.edit-img {
+  max-height: 200px;
+  max-width: 200px;
+}
+
+input:focus {
+    outline:none;
+    border: solid white;
+}
+input {
+    outline:none;
+    border: solid white;
+}
+
+h1 {
+  margin: 0;
+}
+
+.clear-btn {
+  font-family: futura;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: solid black;
+  cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  margin: 0;
+  color: black;
+  font-size: 14px;
+ }
+
+ .edit-btn {
+   font-family: futura;
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border: solid blue;
+   padding: 5px;
+   margin-bottom: 10px;
+   cursor: pointer;
+   overflow: hidden;
+   outline:none;
+   margin: 0;
+   color: black;
+   font-size: 14px;
+   height: 30px;
+  }
+
+.edit-collection-artwork-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.edit-collection-artwork {
+  margin: 2em;
+  text-align: right;
+}
+
+.text-input {
+  width: 50%;
+  height: 2em;
+}
+
+.plus {
+  font-size: 3em;
+  color: red;
+  text-align: right;
+  margin-top: -35px;
+  padding-top: 0
+}
+
+.x-delete{
+  padding-top: 0;
+  position: relative;
+  top: -20px;
+  font-size: 2em;
+  color: red;
+
+}
+
+.logo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  z-index: 100;
+}
+
+.search-form {
+  margin: auto;
+  margin-top: 1em;
+  width: 40%;
+  opacity: 0.7;
+  display: inline-block;
+  height: 40px;
+  position: fixed;
+}
+
+.glyphicon {
+    font-size: 30px;
+}
+
+.log-out {
+  position: fixed;
+  bottom: 25px;
+  right: 320px;
+}
+
+.search {
+  position: fixed;
+  bottom: 25px;
+  right: 373px;
+}
+
+.add-collection {
+  position: fixed;
+  bottom: 25px;
+  right: 420px;
+}
+
+.glyphicon.glyphicon-pencil {
+  display: inline;
+  font-size: 15px;
+  color: grey;
+}
+
+.searchbar-icon {
+  left: 250px;
+}
+
+.add-art {
+  font-size: 2em;
+  margin-top: 3em;
+  display: inline;
+  color: grey;
+}
+
+#mySelect {
+  border: solid white;
+  border-radius: 0;
+}
+
+#mySelect:focus {
+    outline: none;
+    border: solid white;
+}
+
+input[type='radio'] {
+  -webkit-appearance:none;
+  width:20px;
+  height:20px;
+  border:1px solid darkgray;
+  border-radius:50%;
+  outline:none;
+  box-shadow:0 0 5px 0px gray inset;
+}
+
+input[type='radio']:before {
+  content:'';
+  display:block;
+  width:60%;
+  height:60%;
+  margin: 20% auto;
+  border-radius:50%;
+}
+
+input[type='radio']:checked:before {
+  background:red;
+}
+
+input, textarea, select, a { outline: none; }
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.edit-form {
+  margin-bottom: 1em;
+}

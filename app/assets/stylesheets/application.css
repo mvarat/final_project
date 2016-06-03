@@ -276,3 +276,7 @@ input, textarea, select, a { outline: none; }
   outline-color: transparent;
   outline-style: none;
 }
+
+.edit-form {
+  margin-bottom: 1em;
+}

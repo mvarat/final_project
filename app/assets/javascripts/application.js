@@ -24,7 +24,9 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 //
 //   // get token;
 // $scope.getToken = function(){
-//   $http.post('https://api.artsy.net/api/tokens/xapp_token')
+//   $http.get('/token').then(function(response){
+//     $scope.xapp = response.token
+//   })
 //     .send({ client_id: clientID, client_secret: clientSecret })
 //     .end(function(res) {
 //       xappToken = res.body.token;
@@ -33,83 +35,102 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 //   });
 // }
 
-  $scope.artworks = [];
+  // $scope.artworks = [];
 
-  // get the user's collections for dropdown
-  $http.get('/collections/')
-    .success(function(collections) {
-      $scope.collections = collections;
-    });
-
-
-  // get artwork
-  // this function is not being used because of an error relating to "cross-origin requests that require preflight"
-  $scope.getArtwork = function (artworkUrl) {
-    var req = {
-      method: 'GET',
-      url: artworkUrl,
-      headers: {
-        'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
-      }
-    }
-
-    $http(req).then(function(response){
-      console.log(response.data);
-      // console.log(response.data.date);
-      // console.log(response.data._links.thumbnail.href);
-      // $scope.tnImage = response.data._links.thumbnail.href;
-      // $scope.emptyImageURL = response.data._links["image:self"].href;
-      // $scope.imageURL = $scope.emptyImageURL.replace("{?image_version}", "/large");
-      $scope.year = response.data.date;
-      $scope.title = response.data.title;
-      $scope.artistURL = response.data._links.artists.href;
-      $scope.getArtist();
-    });
-  }
-
-  // get artist
-  $scope.getArtist = function () {
-    var artistReq = {
-      method: 'GET',
-      url: $scope.artistURL,
-      headers: {
-        'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
-      }
-    }
-
-    $http(artistReq).then(function(response){
-      // console.log(response);
-      // console.log(response.data._embedded.artists[0].name);
-      $scope.artist = response.data._embedded.artists[0].name;
-    });
-  }
+  // // get the user's collections for dropdown
+  // $http.get('/collections/')
+  //   .success(function(collections) {
+  //     $scope.collections = collections;
+  //   });
+  //
+  //
+  // // get artwork
+  // // this function is not being used because of an error relating to "cross-origin requests that require preflight"
+  // $scope.getArtwork = function (artworkUrl) {
+  //
+  //   $http.get('/token').then(function(response){
+  //     $scope.xapp = response.token
+  //     var req = {
+  //       method: 'GET',
+  //       url: artworkUrl,
+  //       headers: {
+  //         'X-Xapp-Token': $scope.xapp
+  //       }
+  //     }
+  //     $http(req).then(function(response){
+  //       console.log(response.data);
+  //       // console.log(response.data.date);
+  //       // console.log(response.data._links.thumbnail.href);
+  //       // $scope.tnImage = response.data._links.thumbnail.href;
+  //       // $scope.emptyImageURL = response.data._links["image:self"].href;
+  //       // $scope.imageURL = $scope.emptyImageURL.replace("{?image_version}", "/large");
+  //       $scope.year = response.data.date;
+  //       $scope.title = response.data.title;
+  //       $scope.artistURL = response.data._links.artists.href;
+  //       $scope.getArtist();
+  //     });
+  //   })
+  //
+  // }
+  //
+  // // get artist
+  // $scope.getArtist = function () {
+  //   var artistReq = {
+  //     method: 'GET',
+  //     url: $scope.artistURL,
+  //     headers: {
+  //       'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
+  //     }
+  //   }
+  //
+  //   $http(artistReq).then(function(response){
+  //     // console.log(response);
+  //     // console.log(response.data._embedded.artists[0].name);
+  //     $scope.artist = response.data._embedded.artists[0].name;
+  //   });
+  // }
 
   // search for an artist by search term
   $scope.search = function (searchTerm) {
     console.log("Search Term: " + searchTerm)
     $scope.artworks = [];
-    var searchReq = {
-      method: 'GET',
-      url: 'https://api.artsy.net/api/search?q=' + searchTerm + '+more:pagemap:metatags-og_type:artwork',
-      headers: {
-        'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
-      }
-    }
 
-    // store search results in artworks [] to be rendered on search page
-    $http(searchReq).then(function(response){
-      // console.log("search response:");
-      response.data._embedded.results.forEach(function(data){
-        var newArt = {};
-        newArt.thumbnailImage = data._links.thumbnail.href;
-        newArt.title = data.title;
-        newArt.url = data._links.self.href;
-        if (newArt.thumbnailImage != "/images/icon-152.png") {
-          $scope.artworks.push( newArt );
+    $http.get('/token').then(function(response){
+      $scope.xapp = response.data.token
+      console.log($scope.xapp);
+      var searchReq = {
+        method: 'GET',
+        // url: artworkUrl,
+        url: 'https://api.artsy.net/api/search?q=' + searchTerm + '+more:pagemap:metatags-og_type:artwork',
+        headers: {
+          'X-Xapp-Token': $scope.xapp
         }
+      }
+      // store search results in artworks [] to be rendered on search page
+      $http(searchReq).then(function(response){
+        // console.log("search response:");
+        response.data._embedded.results.forEach(function(data){
+          var newArt = {};
+          newArt.thumbnailImage = data._links.thumbnail.href;
+          newArt.title = data.title;
+          newArt.url = data._links.self.href;
+          if (newArt.thumbnailImage != "/images/icon-152.png") {
+            $scope.artworks.push( newArt );
+          }
+        });
+        // console.log($scope.artworks);
       });
-      // console.log($scope.artworks);
-    });
+    })
+
+
+    // var searchReq = {
+    //   method: 'GET',
+    //   url: 'https://api.artsy.net/api/search?q=' + searchTerm + '+more:pagemap:metatags-og_type:artwork',
+    //   headers: {
+    //     'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
+    //   }
+    // }
+
   }
 
   // test getArtwork function ( not working)

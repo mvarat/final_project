@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   include SessionsHelper
 
+  require 'net/http'
+  require 'json'
+
   before_action :authenticate!, only: [:profile]
 
   def new
@@ -28,6 +31,15 @@ class UsersController < ApplicationController
     @user = current_user
     @collections = Collection.where(user_id: @user)
   end
+
+  def token
+    api_url = URI.parse('https://api.artsy.net/api/tokens/xapp_token')
+    response = Net::HTTP.post_form(api_url, client_id: ENV['client_id'], client_secret: ENV['client_secret'])
+    # binding.pry
+    xapp_token = JSON.parse(response.body)['token']
+    render json: { token: xapp_token }
+  end
+
   private
 
   def user_params

@@ -33,7 +33,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 //       console.log("token:");
 //       console.log(xappToken);
 //   });
-// }
+//}
 
   // $scope.artworks = [];
 
@@ -96,7 +96,8 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
     $scope.artworks = [];
 
     $http.get('/token').then(function(response){
-      $scope.xapp = response.data.token
+      console.log("getting token");
+      $scope.xapp = response.data.token;
       console.log($scope.xapp);
       var searchReq = {
         method: 'GET',

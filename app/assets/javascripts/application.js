@@ -20,6 +20,12 @@ var myApp = angular.module("MyApp", ["ui.bootstrap"]);
 
 myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $http){
 
+  // get the user's collections for dropdown
+  $http.get('/collections/')
+    .success(function(collections) {
+      $scope.collections = collections;
+    });
+
 // var xappToken = "";
 //
 //   // get token;
@@ -36,12 +42,6 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 //}
 
   // $scope.artworks = [];
-
-  // // get the user's collections for dropdown
-  // $http.get('/collections/')
-  //   .success(function(collections) {
-  //     $scope.collections = collections;
-  //   });
   //
   //
   // // get artwork
@@ -98,7 +98,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
     $http.get('/token').then(function(response){
       console.log("getting token");
       $scope.xapp = response.data.token;
-      console.log($scope.xapp);
+      // console.log($scope.xapp);
       var searchReq = {
         method: 'GET',
         // url: artworkUrl,
@@ -150,7 +150,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
   }
   $http.post('/api/collections/' + newArtwork.artwork.collection_id + '/artworks', newArtwork)
     .success(function (newArtwork) {
-    // console.log("added artwork to collection: " + newArtwork.artworks.collection_id);
+    console.log("added artwork to collection: " + newArtwork.artworks.collection_id);
   }).then(function(){
     $scope.artwork = {};
   })

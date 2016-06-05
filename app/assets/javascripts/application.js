@@ -97,14 +97,13 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 
     $http.get('/token').then(function(response){
       $scope.xapp = response.data.token;
-      $scope.xapp = "JvTPWe4WsQO-xqX6Bts49mdCflE7ZOlCwb9EQ_7NlXGTePMdR1oNz7f4ahM7K9RVjN_nOTdPrPiF1h-jzXxPUQYd0mpNteR7LjGfJFcsarWAVN7Qjm4R93NYVIx-iddGRWWsnk5UplN7g1H0xPZNkYFI8h0D9fpy1grf-5Ox0LQlIuaPOs4sIP7TQ6-RjjVuaD_E0ROnYOc7pFFtB6MQLZGZvUl6AIvyrnyjcrhh_JY=";
       console.log($scope.xapp);
       var searchReq = {
         method: 'GET',
         // url: artworkUrl,
         url: 'https://api.artsy.net/api/search?q=' + searchTerm + '+more:pagemap:metatags-og_type:artwork',
         headers: {
-          'X-Xapp-Token': $scope.xapp
+          'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49mdCflE7ZOlCwb9EQ_7NlXGTePMdR1oNz7f4ahM7K9RVjN_nOTdPrPiF1h-jzXxPUQYd0mpNteR7LjGfJFcsarWAVN7Qjm4R93NYVIx-iddGRWWsnk5UplN7g1H0xPZNkYFI8h0D9fpy1grf-5Ox0LQlIuaPOs4sIP7TQ6-RjjVuaD_E0ROnYOc7pFFtB6MQLZGZvUl6AIvyrnyjcrhh_JY="
         }
       }
       // store search results in artworks [] to be rendered on search page

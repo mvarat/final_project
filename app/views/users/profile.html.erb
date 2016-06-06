@@ -9,12 +9,14 @@
     <% end %>
   <% end %>
 </div>
+<br>
 <div class="collection-type">EXPLORE COLLECTIONS</div>
 <div class="collection-container">
   <% @all_collections.reverse_each do |collection| %>
     <%= link_to collection_path(collection.id) do %>
       <div class="collection" style="background-image: url('<%= collection.default_image %>');">
         <%= collection.title %>
+                <h5>   <%= collection.user_id %> </h5>
       </div>
     <% end %>
   <% end %>

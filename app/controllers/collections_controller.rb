@@ -32,11 +32,13 @@ class CollectionsController < ApplicationController
       @user = current_user
       @collection = Collection.find params[:id]
       @artworks = Artwork.where(collection_id: @collection.id)
+      @username = User.where(user_id: @collection.user_id)
     render json: @collection
     else
       @user = current_user
       @collection = Collection.find params[:id]
       @artworks = Artwork.where(collection_id: @collection.id)
+      @username = User.where(user_id: @collection.user_id)
       render :show
     end
   end

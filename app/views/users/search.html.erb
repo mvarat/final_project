@@ -1,13 +1,10 @@
 <div ng-controller="ArtworksController">
   <form class="search-form">
     <input ng-model="term" id="search-box" placeholder="Search...">
-    <button type="button" ng-click="search(term)"><span class="glyphicon glyphicon-search searchbar-icon"></span> Search</button>
+    <button type="button" ng-click="search(term)"><span class="glyphicon glyphicon-search searchbar-icon"></span></button>
   </form>
   <br>
-  <!-- <% @collections.each do |collection| %>
-        <p><%= collection.title %></p>
 
-    <% end %> -->
 
   <div ng-repeat="artwork in artworks" class="search-results-container">
     <div class="search-result">

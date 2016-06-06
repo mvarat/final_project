@@ -1,14 +1,17 @@
-<h2>Log In</h2>
+<div class="log-in-form">
+
+<h3>log in</h3>
 
 <%= form_tag '/sessions', method: :post do %>
   <%= label_tag :username, "USERNAME"  %>
   <br>
-  <%= text_field_tag :username %>
+  <%= text_field_tag :username, nil, class: 'sign-up-input' %>
   <br>
   <%= label_tag :password , "PASSWORD" %>
   <br>
-  <%= password_field_tag :password %>
+  <%= password_field_tag :password,  nil, class: 'sign-up-input'  %>
   <br>
-  <%= submit_tag("LOG IN",  :class=>'clear-btn wallpaper-btn') %>
+  <%= submit_tag("LOG IN",  :class=>'clear-btn wallpaper-btn form-btn') %>
 <% end %>
-<p>Don't have an account? <%= link_to "Sign Up!", new_user_path %></p>
+<p>don't have an account? <%= link_to "sign up", new_user_path %></p>
+</div>

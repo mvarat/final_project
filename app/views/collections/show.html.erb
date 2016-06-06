@@ -5,7 +5,7 @@
     <%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_collection_path(@collection) %>
   </h2>
   <h4><%= @collection.description %></h4>
-  <h5>Curated By: @<%= @user.username %></h5>
+  <h6>curated by: @<%= @user.username %></h6>
   <div class="search">
     <%= link_to "<span class=\"glyphicon glyphicon-search\"></span>".html_safe, search_path %>
   </div>

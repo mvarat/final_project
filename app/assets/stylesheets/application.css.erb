@@ -28,6 +28,7 @@ body {
 
 
 .collection-type {
+  margin-top: .5em;
   position: fixed;
   font-size: 2em;
 }
@@ -109,12 +110,14 @@ a:hover {
 }
 
 input:focus {
-    outline:none;
-    border: solid white;
+  outline:none;
+  border: solid white;
 }
+
 input {
-    outline:none;
-    border: solid white;
+  /*opacity: .6;*/
+  outline:none;
+  border: solid white;
 }
 
 h1 {
@@ -138,7 +141,7 @@ h1 {
    font-family: futura;
    background-color: Transparent;
    background-repeat:no-repeat;
-   border: solid blue;
+   border: solid black;
    padding: 5px;
    margin-bottom: 10px;
    cursor: pointer;
@@ -161,8 +164,13 @@ h1 {
 }
 
 .text-input {
-  width: 50%;
+  opacity: .6;
+  width: 330px;
   height: 2em;
+}
+
+.sign-up-input {
+  opacity: .6;
 }
 
 .plus {
@@ -281,6 +289,56 @@ input, textarea, select, a { outline: none; }
 
 .edit-form {
   margin-bottom: 1em;
+}
+
+.splash {
+  color: black;
+  border: solid black;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding: 2em;
+  padding-bottom: 3em;
+  margin-top: 20%;
+}
+
+.log-in {
+  margin-top: 1em;
+  color: white;
+}
+
+.log-in-form{
+  width: 230px;
+  margin-top: 20%;
+  margin: auto;
+  text-align: center;
+}
+
+.sign-up-form{
+  width: 230px;
+  margin-top: 20%;
+  margin: auto;
+  text-align: center;
+}
+.new-collection{
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+}
+
+h2 {
+  color: black;
+}
+
+h3 {
+  color: white;
+}
+
+h5 {
+  font-size: 1.5em;
+}
+.form-btn {
+  margin: 1em;
 }
 
 @media (max-width: 450px) {

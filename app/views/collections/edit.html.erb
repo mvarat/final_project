@@ -1,7 +1,7 @@
 <% if @user.id == @collection.user_id %>
 
   <%= form_for @collection, :html => {class: 'edit-form'} do |f| %>
-
+    <br>
     <%= f.label :title, "TITLE" %>
     <br>
     <%= f.text_field :title, class: 'text-input'%>

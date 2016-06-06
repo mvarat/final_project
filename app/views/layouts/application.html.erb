@@ -19,7 +19,7 @@
       <% if !current_user %>
         <h1><%= link_to "whitespace", root_path, { :class=>"logo" } %></h1>
         <div class = "log-in">
-          <h5><%= link_to "Sign Up", new_user_path %> // <%= link_to "Log In", log_in_path %></h5>
+          <h5><%= link_to "sign up", new_user_path %> // <%= link_to "log in", log_in_path %></h5>
         </div>
       <% else %>
         <h1><%= link_to "whitespace", profile_path, { :class=>"logo" } %></h1>

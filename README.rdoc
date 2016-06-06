@@ -1,28 +1,35 @@
-== README
+### whitespace
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+a place to curate and share original art collections.
 
-Things you may want to cover:
+### USER STORIES
+A user will be able to create an account with a username and password.
+A user will be able to login and logout of the application.
+A user will be able to create a public or private art collection with a title and description.
+A user will be able to search artworks from the Artsy API and save selected artworks to the a specified collection.
+A user will be able to edit the collection's title and description.
+A user will be able to delete a collection.
+A user will be able to delete artwork from a collection.
+A user will be able to set a background image for the collection.
+A user will be able to view their own collections and public collections of other users.
+A user will be able to have full functionality on a mobile device.
 
-* Ruby version
+### THIRD PARTY API
+Artsy
 
-* System dependencies
+### TECHNOLOGY
+Rails 4.2.6, Ruby, CSS, HTML
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### WIRE FRAMES
+http://i.imgur.com/aV14TMG.jpg
+http://i.imgur.com/en6qBio.png
+http://i.imgur.com/qnO9Xr6.png
+http://i.imgur.com/ny831hE.png
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### SCREENSHOTS
+http://i.imgur.com/HQKGPtk.png
+http://i.imgur.com/wsX5Dn6.png
+http://i.imgur.com/TRxJFZD.png
+http://i.imgur.com/SKj1QhI.jpg
+http://i.imgur.com/ejqmijq.jpg

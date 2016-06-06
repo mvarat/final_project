@@ -4,6 +4,7 @@
     <%= link_to collection_path(collection.id) do %>
       <div class="collection" style="background-image: url('<%= collection.default_image %>');">
         <%= collection.title %>
+        <h5>   <%= collection.user_id %> </h5>
       </div>
     <% end %>
   <% end %>

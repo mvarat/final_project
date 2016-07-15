@@ -97,7 +97,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 
     $http.get('/token').then(function(response){
       $scope.xapp = response.data.token;
-      $scope.xapp = "JvTPWe4WsQO-xqX6Bts49rzAbDWiNNHrGdJLBVTh4rc8OfoM2a7Cu7KvtUBoEVB3-l25AGZtN-Bs2TiZv0Qidu6E09RGyAFUjS1ZDQUUesligBXuxd-WE2M-1l_fLinr8MZFAXYfacIvn9Id7fDEfE-apvvudXWxFhwY_FGGZ6uJox3mZgk2VGNZelg0fbuSmy9G4beMRAPQaqEQJ-NXZxUocmzgRdUvGWMwWF-Oid0=";
+      $scope.xapp = "JvTPWe4WsQO-xqX6Bts49q6brz9SI8ZYA4_aDPTB_Jx1bGTMwLnuPWvLROxs6-m6bUycN7i33yH7iV-uO83aupk8UFHeE10tc5FVv1XXKfvRJ-lgIt9cSLjChULr5R1PqQJy0EpND98ZICgR51imApY3zv9n08Dw_zOoLUow_PJktiPrGh2VUeSJLVIiadcSGVt3WEt3JfrT9pqN1PF7OhUsVLKMA2H8_ic4qfJJdv8=";
       var searchReq = {
         method: 'GET',
         // url: artworkUrl,

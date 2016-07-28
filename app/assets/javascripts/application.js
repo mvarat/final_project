@@ -26,6 +26,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
       $scope.collections = collections;
     });
 
+// get token from ARTSY (will not return new token)
 // var xappToken = "";
 //
 //   // get token;

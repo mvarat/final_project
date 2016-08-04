@@ -42,55 +42,6 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 //   });
 //}
 
-  // $scope.artworks = [];
-  //
-  //
-  // // get artwork
-  // // this function is not being used because of an error relating to "cross-origin requests that require preflight"
-  // $scope.getArtwork = function (artworkUrl) {
-  //
-  //   $http.get('/token').then(function(response){
-  //     $scope.xapp = response.token
-  //     var req = {
-  //       method: 'GET',
-  //       url: artworkUrl,
-  //       headers: {
-  //         'X-Xapp-Token': $scope.xapp
-  //       }
-  //     }
-  //     $http(req).then(function(response){
-  //       console.log(response.data);
-  //       // console.log(response.data.date);
-  //       // console.log(response.data._links.thumbnail.href);
-  //       // $scope.tnImage = response.data._links.thumbnail.href;
-  //       // $scope.emptyImageURL = response.data._links["image:self"].href;
-  //       // $scope.imageURL = $scope.emptyImageURL.replace("{?image_version}", "/large");
-  //       $scope.year = response.data.date;
-  //       $scope.title = response.data.title;
-  //       $scope.artistURL = response.data._links.artists.href;
-  //       $scope.getArtist();
-  //     });
-  //   })
-  //
-  // }
-  //
-  // // get artist
-  // $scope.getArtist = function () {
-  //   var artistReq = {
-  //     method: 'GET',
-  //     url: $scope.artistURL,
-  //     headers: {
-  //       'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
-  //     }
-  //   }
-  //
-  //   $http(artistReq).then(function(response){
-  //     // console.log(response);
-  //     // console.log(response.data._embedded.artists[0].name);
-  //     $scope.artist = response.data._embedded.artists[0].name;
-  //   });
-  // }
-
   // search for an artist by search term
   $scope.search = function (searchTerm) {
     console.log("Search Term: " + searchTerm)
@@ -98,7 +49,7 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
 
     $http.get('/token').then(function(response){
       $scope.xapp = response.data.token;
-      $scope.xapp = "JvTPWe4WsQO-xqX6Bts49pk7e2HcPv_2YSfvNPGvMjWX5A7i845IWDXSwziRihXeMtfcpvPf5WrVuU-YFwQZT8Sumim9IrnkImohAl2WbCNjKhRt7RTJ9N8F7sWVK07B9ZKQMIOZdPZslOr7HNmPspcmBH73yaPZif6ikFs0fDgziFF5PL-79vjTbZpU8Z5jdxFCMZyEy8LL5qYp6b70_6ZeE3snw1bakaRA-sJ41FU=";
+      $scope.xapp = "JvTPWe4WsQO-xqX6Bts49uNWfeKLxEh33MiM5s-WAbHEl4a-F0g0GPY6LHaxKsVCPEESWcp6Rnr8ADmKBothFprPToiDhD6WXNgicPz57wn_lmjSiMmffTKJUSwdzdPnE7cKtI-AHhXGawcW8J_vWI6im1chBrnv2cI8958CtCvPTwoXV_xigoAbwBQjtHjOa9ouiPtVk2Grw5AsvyS1iJ1qr6M3QKvRoa7VXoh9_to=";
       var searchReq = {
         method: 'GET',
         // url: artworkUrl,
@@ -123,19 +74,9 @@ myApp.controller("ArtworksController", ["$scope", "$http", function( $scope, $ht
       });
     })
 
-
-    // var searchReq = {
-    //   method: 'GET',
-    //   url: 'https://api.artsy.net/api/search?q=' + searchTerm + '+more:pagemap:metatags-og_type:artwork',
-    //   headers: {
-    //     'X-Xapp-Token': "JvTPWe4WsQO-xqX6Bts49kaiUUjawqzcDLQNdKnJMlbAcMrJJNLliYs3PJ3gY8dKfMbtM9LrRSZ6PwDXPcr3msJifE32h6pS4HIdyPwXLs3_BTBzEGVTZFecuumk6rWbw7kpOZFRGJka-FbyWh-N3PZ0EMZa21jrC8sCaPQhqCSbFvDXkvosSVH6MVi9rLM0mGSw3_9PHIdiMc7Ft_6RUBAOjtg1KXLUArOOz1ncHr8="
-    //   }
-    // }
-
   }
 
-  // test getArtwork function ( not working)
-  // $scope.getArtwork("https://api.artsy.net/api/artworks/heinrich-hoerle-helft-dem-kruppel-help-the-cripples");
+
 
   // POST $http to save an artwork to specified collection
   $scope.saveArt = function (art, c_id) {
